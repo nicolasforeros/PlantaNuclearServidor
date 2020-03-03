@@ -64,7 +64,7 @@ public class ControladorReactor {
                 if(operacion.trim().equalsIgnoreCase("apagar")){
                     mensajeRespuesta = this.realizarMensajeApagar(obj);
                 }else{
-                    if(operacion.trim().equalsIgnoreCase("apagar")){
+                    if(operacion.trim().equalsIgnoreCase("cargar")){
                         mensajeRespuesta = this.realizarMensajeCargar(obj);
                     }else{
                         if(operacion.trim().equalsIgnoreCase("reparar")){

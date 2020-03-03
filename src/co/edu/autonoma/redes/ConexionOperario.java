@@ -68,9 +68,10 @@ public class ConexionOperario extends Thread{
                 RespuestaAPeticion respuesta = control.procesarMensaje(mensajeRecibido);
                 
                 if(respuesta!=null){
-                    if(respuesta.isNotificacion())
+                    if(respuesta.isNotificacion()){
+                        System.out.println("Enviando Notificacion");
                         notificaciones.setNotificacion(respuesta.getRespuesta());
-                    else{
+                    }else{
                         //enviar al cliente no mas
                         System.out.println("Enviando mensaje al operario");
                         if(out!=null){

@@ -101,6 +101,7 @@ public class ControladorReactor {
     
     private String apagarReactor(Reactor reactor){
         if(reactor.getEstado()==Reactor.ESTADO_ENCENDIDO){
+            reactor.setCarga(0);
             reactor.setEstado(Reactor.ESTADO_APAGADO);
             return EXITO;
         }else{

@@ -109,16 +109,18 @@ public class ControladorReactor {
     }
     
     private String cargarReactor(Reactor reactor, double valorACargar){
-        if(valorACargar>0){
-            if(reactor.getEstado()==Reactor.ESTADO_ENCENDIDO){
-                reactor.cargar(valorACargar);
-                double cargaReactor = reactor.getCarga();
-                if(cargaReactor>100){
-                    this.danarReactor(reactor);
-                    return AVERIA;
-                }else{
-                    return EXITO;
+        
+        if(reactor.getEstado()==Reactor.ESTADO_ENCENDIDO){
+            reactor.cargar(valorACargar);
+            double cargaReactor = reactor.getCarga();
+            if(cargaReactor>100){
+                this.danarReactor(reactor);
+                return AVERIA;
+            }else{
+                if(cargaReactor<0){
+                    reactor.setCarga(0);
                 }
+                return EXITO;
             }
         }
         
